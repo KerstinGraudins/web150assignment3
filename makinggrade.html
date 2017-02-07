@@ -1,0 +1,51 @@
+<html>
+    <script>
+          /*  var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27"; 
+    Using the above data on student test scores, write a javascript program to display scores in a readable format like so:
+- display score for each student in alphabetical order like so with first letter of student name capitalized:
+Name1 - score1
+Name2 - score2
+ - display total # of students,
+- display the minimum, maximum, and average scores */
+        
+var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27"; 
+   
+    //getting students separated by the comma and space
+     var students = grades.split(", "); 
+        
+    //alphebetizes the list
+       students.sort();
+       
+       var total = 0;
+       var min = 100;
+       var max = 0;
+        for (var index in students)
+        {
+        var currentStudents = students[index].split("|");
+           // document.write("<li>" + students[index])
+            
+            
+         //NEED TO CAPITALIZE THE NAMES use .slice and .toUpperCase()   
+           var firstLetter = currentStudents[0].slice(0,1);
+           var restOfName = currentStudents[0].slice(1);
+          document.write("<li>" + firstLetter.toUpperCase() + restOfName + " has a score of: " + currentStudents[1]); 
+            
+            
+            //document.write("<li>" + currentStudents[0] + " has a score of: " + currentStudents[1]);
+            var score =parseInt(currentStudents[1]);
+            total += score;
+            
+            if(score > max)
+            {
+                max = score;
+            }
+            if(score < min)
+            {
+                min = score;
+            }
+        }
+        document.write("<p>Average: " + total/students.length);
+        document.write("<p>Lowest Grade: " + min);
+        document.write("<p>Average: " + max);
+        </script>
+         </html>
